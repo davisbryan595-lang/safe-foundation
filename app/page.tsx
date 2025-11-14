@@ -143,7 +143,7 @@ export default function Home() {
     : galleryItems.filter(item => item.category === activeFilter);
 
   return (
-    <>
+    <div suppressHydrationWarning>
       {isHydrated && isLoading && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
           <div className="relative w-16 h-16 mb-4">
@@ -613,6 +613,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
