@@ -7,13 +7,19 @@ import Image from 'next/image';
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedService, setExpandedService] = useState<number | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
+    setIsHydrated(true);
+    const timer = setTimeout(() => setIsLoading(true), 0);
+    const unloadTimer = setTimeout(() => setIsLoading(false), 2000);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(unloadTimer);
+    };
   }, []);
 
   useEffect(() => {
