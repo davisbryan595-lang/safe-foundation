@@ -166,7 +166,7 @@ export default function Home() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex gap-8 items-center">
-            {['Hero', 'Services', 'Pricing', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
+            {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -205,7 +205,7 @@ export default function Home() {
         {isMenuOpen && (
           <div className="md:hidden bg-white shadow-lg">
             <div className="px-4 py-4 space-y-4">
-              {['Hero', 'Services', 'Pricing', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
+              {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
