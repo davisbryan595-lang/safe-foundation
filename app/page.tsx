@@ -139,7 +139,6 @@ export default function Home() {
 
   return (
     <>
-      {isHydrated && <LoadingOverlay isLoading={isLoading} />}
 
       <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-secondary z-40 origin-left animate-pulse-glow"
         style={{
