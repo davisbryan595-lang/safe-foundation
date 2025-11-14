@@ -17,12 +17,6 @@ export default function Home() {
 
   useEffect(() => {
     setIsHydrated(true);
-    const timer = setTimeout(() => setIsLoading(true), 0);
-    const unloadTimer = setTimeout(() => setIsLoading(false), 2000);
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(unloadTimer);
-    };
   }, []);
 
   useEffect(() => {
