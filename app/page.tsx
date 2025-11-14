@@ -235,16 +235,16 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto px-4 text-center animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            <span className="bg-gradient-mixed bg-clip-text text-transparent">
+            <span className="text-white">
               Safe Foundation:
             </span>
             <br />
-            <span className="text-slate-800">Pioneering Environmental & Safety Solutions</span>
+            <span className="text-white">Pioneering Environmental & Safety Solutions</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 mb-6 text-balance max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white mb-6 text-balance max-w-3xl mx-auto">
             Expert monitoring, climate investigations, and safety assessments nationwide
           </p>
-          <p className="text-lg text-slate-500 mb-12 text-balance">
+          <p className="text-lg text-white/90 mb-12 text-balance">
             Protecting communities and businesses with data-driven insights
           </p>
 
