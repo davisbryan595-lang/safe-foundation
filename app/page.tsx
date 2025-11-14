@@ -9,6 +9,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [expandedService, setExpandedService] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
