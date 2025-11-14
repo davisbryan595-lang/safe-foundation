@@ -159,7 +159,7 @@ export default function Home() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex gap-8 items-center">
-            {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
+            {['Home', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -198,7 +198,7 @@ export default function Home() {
         {isMenuOpen && (
           <div className="md:hidden bg-white shadow-lg">
             <div className="px-4 py-4 space-y-4">
-              {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
+              {['Home', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -277,7 +277,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="py-20 md:py-32 bg-white relative">
+      <section id="services" className="py-12 md:py-20 bg-white relative">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Our Core Services</h2>
@@ -340,7 +340,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 md:py-32 bg-white">
+      <section id="gallery" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Our Work</h2>
@@ -389,7 +389,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white">
+      <section id="pricing" className="py-12 md:py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Transparent Pricing</h2>
@@ -461,7 +461,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 md:py-32 bg-white">
+      <section id="contact" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact form */}
