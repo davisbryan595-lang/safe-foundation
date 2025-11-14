@@ -302,7 +302,14 @@ export default function Home() {
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   <div className="h-full bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-emerald-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-${service.color} mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="w-16 h-16 rounded-xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        backgroundImage: service.color === 'from-emerald-400 to-emerald-600'
+                          ? 'linear-gradient(135deg, #4ade80 0%, #16a34a 100%)'
+                          : service.color === 'from-blue-400 to-blue-600'
+                          ? 'linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)'
+                          : 'linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)'
+                      }}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-800 mb-3">{service.title}</h3>
