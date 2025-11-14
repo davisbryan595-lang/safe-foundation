@@ -265,16 +265,16 @@ export default function Home() {
 
           <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto text-center">
             <div className="animate-slide-in-left" style={{ animationDelay: '0.1s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-blue-600">10+</p>
-              <p className="text-sm md:text-base text-slate-600">Years Experience</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">10+</p>
+              <p className="text-sm md:text-base text-white/80">Years Experience</p>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-emerald-500">500+</p>
-              <p className="text-sm md:text-base text-slate-600">Projects Completed</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">500+</p>
+              <p className="text-sm md:text-base text-white/80">Projects Completed</p>
             </div>
             <div className="animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-cyan-600">USA Wide</p>
-              <p className="text-sm md:text-base text-slate-600">Service Coverage</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">USA Wide</p>
+              <p className="text-sm md:text-base text-white/80">Service Coverage</p>
             </div>
           </div>
         </div>
