@@ -9,6 +9,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [expandedService, setExpandedService] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -34,19 +35,40 @@ export default function Home() {
       icon: Leaf,
       title: 'Environmental Monitoring',
       desc: 'Real-time air/water quality tracking for compliance',
-      color: 'from-emerald-400 to-emerald-600'
+      color: 'from-emerald-400 to-emerald-600',
+      details: [
+        'Continuous monitoring of air and water quality',
+        'Automated alerts for regulatory non-compliance',
+        'Detailed compliance reporting and documentation',
+        'Integration with local environmental agencies',
+        'Real-time data dashboards and analytics'
+      ]
     },
     {
       icon: Globe,
       title: 'Climate Investigation',
       desc: 'In-depth analysis of climate risks and adaptation strategies',
-      color: 'from-blue-400 to-blue-600'
+      color: 'from-blue-400 to-blue-600',
+      details: [
+        'Comprehensive climate risk assessments',
+        'Long-term trend analysis and forecasting',
+        'Customized adaptation strategy development',
+        'Carbon footprint evaluation and reduction planning',
+        'Climate resilience planning for operations'
+      ]
     },
     {
       icon: Shield,
       title: 'Safety Investigation',
       desc: 'Thorough audits for workplace hazards and incident response',
-      color: 'from-cyan-400 to-cyan-600'
+      color: 'from-cyan-400 to-cyan-600',
+      details: [
+        'Complete workplace hazard identification',
+        'Safety protocol review and optimization',
+        'Incident investigation and root cause analysis',
+        'Employee safety training recommendations',
+        'Compliance with OSHA and industry standards'
+      ]
     },
   ];
 
@@ -204,26 +226,25 @@ export default function Home() {
       </nav>
 
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-emerald-50 to-cyan-50 -z-20" />
-        <div className="absolute inset-0 opacity-10 -z-10"
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
           style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, #0066CC 0%, transparent 50%), radial-gradient(circle at 80% 80%, #28A745 0%, transparent 50%)',
-            animation: 'float 20s ease-in-out infinite'
+            backgroundImage: 'url(https://images.pexels.com/photos/10365944/pexels-photo-10365944.jpeg)'
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-emerald-900/60 to-cyan-900/70 -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 text-center animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            <span className="bg-gradient-mixed bg-clip-text text-transparent">
+            <span className="text-white">
               Safe Foundation:
             </span>
             <br />
-            <span className="text-slate-800">Pioneering Environmental & Safety Solutions</span>
+            <span className="text-white">Pioneering Environmental & Safety Solutions</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 mb-6 text-balance max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white mb-6 text-balance max-w-3xl mx-auto">
             Expert monitoring, climate investigations, and safety assessments nationwide
           </p>
-          <p className="text-lg text-slate-500 mb-12 text-balance">
+          <p className="text-lg text-white/90 mb-12 text-balance">
             Protecting communities and businesses with data-driven insights
           </p>
 
@@ -244,22 +265,22 @@ export default function Home() {
 
           <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto text-center">
             <div className="animate-slide-in-left" style={{ animationDelay: '0.1s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-blue-600">10+</p>
-              <p className="text-sm md:text-base text-slate-600">Years Experience</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">10+</p>
+              <p className="text-sm md:text-base text-white/80">Years Experience</p>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-emerald-500">500+</p>
-              <p className="text-sm md:text-base text-slate-600">Projects Completed</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">500+</p>
+              <p className="text-sm md:text-base text-white/80">Projects Completed</p>
             </div>
             <div className="animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-cyan-600">USA Wide</p>
-              <p className="text-sm md:text-base text-slate-600">Service Coverage</p>
+              <p className="text-3xl md:text-4xl font-bold text-emerald-300">USA Wide</p>
+              <p className="text-sm md:text-base text-white/80">Service Coverage</p>
             </div>
           </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-slate-400" />
+          <ChevronDown className="w-6 h-6 text-white/70" />
         </div>
       </section>
 
@@ -273,6 +294,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, idx) => {
               const Icon = service.icon;
+              const isExpanded = expandedService === idx;
               return (
                 <div
                   key={idx}
@@ -280,13 +302,42 @@ export default function Home() {
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   <div className="h-full bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-emerald-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-${service.color} mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="w-16 h-16 rounded-xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        backgroundImage: service.color === 'from-emerald-400 to-emerald-600'
+                          ? 'linear-gradient(135deg, #4ade80 0%, #16a34a 100%)'
+                          : service.color === 'from-blue-400 to-blue-600'
+                          ? 'linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)'
+                          : 'linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)'
+                      }}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-800 mb-3">{service.title}</h3>
                     <p className="text-slate-600 mb-6">{service.desc}</p>
-                    <button className="text-emerald-500 font-semibold flex items-center gap-2 group/btn">
-                      Learn More <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+
+                    {isExpanded && (
+                      <div className="mb-6 pb-6 border-b border-slate-200 animate-fade-in-up">
+                        <ul className="space-y-3">
+                          {service.details.map((detail, i) => (
+                            <li key={i} className="flex items-start gap-3 text-slate-600">
+                              <div className="w-5 h-5 rounded-full bg-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                              </div>
+                              <span className="text-sm">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={() => setExpandedService(isExpanded ? null : idx)}
+                      className="text-emerald-500 font-semibold flex items-center gap-2 group/btn"
+                    >
+                      {isExpanded ? 'Show Less' : 'Learn More'}
+                      <ChevronRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : 'group-hover/btn:translate-x-1'}`} />
                     </button>
                   </div>
                 </div>
