@@ -35,19 +35,40 @@ export default function Home() {
       icon: Leaf,
       title: 'Environmental Monitoring',
       desc: 'Real-time air/water quality tracking for compliance',
-      color: 'from-emerald-400 to-emerald-600'
+      color: 'from-emerald-400 to-emerald-600',
+      details: [
+        'Continuous monitoring of air and water quality',
+        'Automated alerts for regulatory non-compliance',
+        'Detailed compliance reporting and documentation',
+        'Integration with local environmental agencies',
+        'Real-time data dashboards and analytics'
+      ]
     },
     {
       icon: Globe,
       title: 'Climate Investigation',
       desc: 'In-depth analysis of climate risks and adaptation strategies',
-      color: 'from-blue-400 to-blue-600'
+      color: 'from-blue-400 to-blue-600',
+      details: [
+        'Comprehensive climate risk assessments',
+        'Long-term trend analysis and forecasting',
+        'Customized adaptation strategy development',
+        'Carbon footprint evaluation and reduction planning',
+        'Climate resilience planning for operations'
+      ]
     },
     {
       icon: Shield,
       title: 'Safety Investigation',
       desc: 'Thorough audits for workplace hazards and incident response',
-      color: 'from-cyan-400 to-cyan-600'
+      color: 'from-cyan-400 to-cyan-600',
+      details: [
+        'Complete workplace hazard identification',
+        'Safety protocol review and optimization',
+        'Incident investigation and root cause analysis',
+        'Employee safety training recommendations',
+        'Compliance with OSHA and industry standards'
+      ]
     },
   ];
 
