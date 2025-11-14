@@ -3,9 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X, Leaf, Globe, Shield, MapPin, Phone, Mail, Star, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-
-const LoadingOverlay = dynamic(() => import('./components/loading-overlay').then(mod => ({ default: mod.LoadingOverlay })))
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
