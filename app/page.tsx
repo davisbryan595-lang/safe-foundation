@@ -226,13 +226,12 @@ export default function Home() {
       </nav>
 
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-emerald-50 to-cyan-50 -z-20" />
-        <div className="absolute inset-0 opacity-10 -z-10"
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
           style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, #0066CC 0%, transparent 50%), radial-gradient(circle at 80% 80%, #28A745 0%, transparent 50%)',
-            animation: 'float 20s ease-in-out infinite'
+            backgroundImage: 'url(https://images.pexels.com/photos/10365944/pexels-photo-10365944.jpeg)'
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-emerald-900/60 to-cyan-900/70 -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 text-center animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
