@@ -7,13 +7,13 @@ import Image from 'next/image';
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedService, setExpandedService] = useState<number | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
+    setIsHydrated(true);
   }, []);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -138,14 +139,6 @@ export default function Home() {
 
   return (
     <>
-      {isLoading && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
-          <div className="relative w-16 h-16 mb-4">
-            <Leaf className="w-16 h-16 text-emerald-500 animate-spin-leaf" />
-          </div>
-          <p className="text-slate-600 font-medium">Building Safer Tomorrows...</p>
-        </div>
-      )}
 
       <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-secondary z-40 origin-left animate-pulse-glow"
         style={{
@@ -166,7 +159,7 @@ export default function Home() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex gap-8 items-center">
-            {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
+            {['Home', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -205,7 +198,7 @@ export default function Home() {
         {isMenuOpen && (
           <div className="md:hidden bg-white shadow-lg">
             <div className="px-4 py-4 space-y-4">
-              {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
+              {['Home', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -284,7 +277,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="py-20 md:py-32 bg-white relative">
+      <section id="services" className="py-12 md:py-20 bg-white relative">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Our Core Services</h2>
@@ -347,7 +340,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 md:py-32 bg-white">
+      <section id="gallery" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Our Work</h2>
@@ -396,7 +389,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white">
+      <section id="pricing" className="py-12 md:py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Transparent Pricing</h2>
@@ -438,7 +431,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 md:py-32 bg-gradient-to-br from-blue-50 to-emerald-50">
+      <section id="testimonials" className="py-12 md:py-20 bg-gradient-to-br from-blue-50 to-emerald-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Client Testimonials</h2>
@@ -468,7 +461,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 md:py-32 bg-white">
+      <section id="contact" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact form */}
