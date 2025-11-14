@@ -5,10 +5,7 @@ import { ChevronDown, Menu, X, Leaf, Globe, Shield, MapPin, Phone, Mail, Star, C
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const LoadingOverlay = dynamic(() => import('./components/loading-overlay').then(mod => ({ default: mod.LoadingOverlay })), {
-  ssr: false,
-  loading: () => null
-});
+const LoadingOverlay = dynamic(() => import('./components/loading-overlay').then(mod => ({ default: mod.LoadingOverlay })))
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -151,7 +148,7 @@ export default function Home() {
 
   return (
     <>
-      <LoadingOverlay isLoading={isLoading} />
+      {isHydrated && <LoadingOverlay isLoading={isLoading} />}
 
       <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-secondary z-40 origin-left animate-pulse-glow"
         style={{
