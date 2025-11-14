@@ -144,7 +144,7 @@ export default function Home() {
 
   return (
     <>
-      {isLoading && (
+      {isHydrated && isLoading && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
           <div className="relative w-16 h-16 mb-4">
             <Leaf className="w-16 h-16 text-emerald-500 animate-spin-leaf" />
