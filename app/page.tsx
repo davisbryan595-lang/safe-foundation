@@ -266,7 +266,7 @@ export default function Home() {
               <p className="text-sm md:text-base text-white/80">Projects Completed</p>
             </div>
             <div className="animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-              <p className="text-3xl md:text-4xl font-bold text-emerald-300">All Over USA</p>
+              <p className="text-2xl md:text-3xl font-bold text-emerald-300">All Over USA</p>
               <p className="text-sm md:text-base text-white/80">Service Coverage</p>
             </div>
           </div>
