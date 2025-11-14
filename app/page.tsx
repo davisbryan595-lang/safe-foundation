@@ -30,6 +30,42 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (!isHydrated) {
+    return (
+      <div>
+        <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-secondary z-40 origin-left animate-pulse-glow"
+          style={{
+            transform: 'scaleX(0)',
+            transition: 'transform 0.3s ease'
+          }}>
+        </div>
+        <nav className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-gradient-to-b from-white/80 to-white/0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div className="text-2xl font-bold bg-gradient-mixed bg-clip-text text-transparent">
+              Safe Foundation
+            </div>
+            <div className="hidden md:flex gap-8 items-center">
+              {['Hero', 'Services', 'Gallery', 'Pricing', 'Testimonials', 'Contact'].map((item) => (
+                <button key={item} className="transition-colors text-slate-700 hover:text-blue-600">
+                  {item}
+                </button>
+              ))}
+            </div>
+            <button className="hidden md:block px-6 py-2 rounded-lg font-medium transition-all duration-300 bg-emerald-500 text-white hover:bg-emerald-600">
+              Get Quote
+            </button>
+            <button className="md:hidden">
+              <Menu className="w-6 h-6 text-slate-700" />
+            </button>
+          </div>
+        </nav>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+          <div className="max-w-6xl mx-auto px-4 text-center">Loading...</div>
+        </section>
+      </div>
+    );
+  }
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -143,8 +179,8 @@ export default function Home() {
     : galleryItems.filter(item => item.category === activeFilter);
 
   return (
-    <div suppressHydrationWarning>
-      {isHydrated && isLoading && (
+    <>
+      {isLoading && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
           <div className="relative w-16 h-16 mb-4">
             <Leaf className="w-16 h-16 text-emerald-500 animate-spin-leaf" />
@@ -613,6 +649,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
