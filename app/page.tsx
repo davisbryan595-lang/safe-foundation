@@ -522,7 +522,7 @@ export default function Home() {
                 <MapPin className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-slate-800">Address</p>
-                  <p className="text-slate-600">301 E Street NW Suite A210<br />Washington, DC 20037</p>
+                  <p className="text-slate-600">2301 E Street NW Suite A210<br />Washington, DC 20037</p>
                 </div>
               </div>
 
@@ -590,7 +590,7 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
-              <p className="text-blue-100">301 E Street NW Suite A210</p>
+              <p className="text-blue-100">2301 E Street NW Suite A210</p>
               <p className="text-blue-100">Washington, DC 20037</p>
             </div>
           </div>
